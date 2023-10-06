@@ -1,0 +1,113 @@
+/* Estilo para os botões 3D */
+button {
+    border: 1px solid #333;
+    background-color: #555;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+button:hover {
+    transform: translate(0, -5px);
+}
+
+/* Estilos para a barra superior */
+.navbar {
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.navbar-button {
+    font-size: 16px;
+    box-shadow: 3px 7px 5px;
+    transition: transform 400ms, box-shadow 400ms;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 100%;
+}
+
+.navbar-button:nth-child(2):hover + .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+/* Estilos para a barra lateral */
+.sidebar {
+    width: 20vw;
+    height: 1200px;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: scroll;
+}
+
+.sidebar-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Estilos para o conteúdo */
+.content {
+    margin-left: 20vw;
+    width: 80vw;
+    height: 1200px;
+    padding: 20px;
+    background-color: #eee;
+}
+
+.loading {
+    width: 40px;                            /*Dimenções do componente*/
+    height: 40px;                           /*Dimenções do componente*/
+    border: 4px solid #333;               /*Dimenções da borda*/  
+    border-top: 4px solid #555;           /*Dimenções da borda na parte superior*/
+    border-radius: 50%;                     /*Dimenções do raio da borda*/
+    animation: spin 1s linear infinite;     /*Animação de giro linear e infinito*/
+    margin: 20px auto;                      /*Margem*/
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }         /*Medidas de giro de loading*/
+    100% { transform: rotate(360deg); }     /*Medidas de giro de loading*/
+}
+
+/* Responsividade */
+@media screen and (max-width: 600px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        top: 50px; /* Abaixo da barra superior */
+        left: 0;
+    }
+
+    .content {
+        margin-left: 0;
+        width: 100%;
+        order: 3; /* Conteúdo no final da página */
+    }
+}
